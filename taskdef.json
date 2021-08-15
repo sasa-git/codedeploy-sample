@@ -3,7 +3,7 @@
   "containerDefinitions": [
       {
           "name": "env-checker",
-          "image": "<IMAGE1_NAME>",
+          "image": "002558080376.dkr.ecr.ap-northeast-1.amazonaws.com/sasa-codedeploy-test:latest",
           "essential": true,
           "portMappings": [
               {
@@ -12,12 +12,20 @@
                   "containerPort": 3000
               }
           ],
-          "enviroment": [
+          "environment": [
             {
               "name": "TEST_ENV",
               "value": "sasa"
             }
-          ]
+          ],
+          "logConfiguration": { 
+            "logDriver": "awslogs",
+            "options": { 
+                "awslogs-group" : "/ecs/fargate-task-definition",
+              "awslogs-region": "ap-northeast-1",
+              "awslogs-stream-prefix": "ecs"
+            }
+          }
       }
   ],
   "requiresCompatibilities": [
