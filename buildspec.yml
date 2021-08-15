@@ -1,0 +1,29 @@
+# buildspec.ymlには3つのフェーズを定義
+# 1. pre_build - ECRにログイン
+# 2. build - Dockerイメージのビルドとプッシュ
+# 3. post_build - imagedefinitions.jsonファイルの作成（CodePipelineで触れる）
+version: 0.2
+
+env:
+  parameter-store:
+    DOCKER_USER: dockerhub-user
+    DOCKER_TOKEN: dockerhub-token
+phases:
+  pre_build:
+    commands:
+    - echo Logging in to Amazon ECR...
+    - aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 002558080376.dkr.ecr.ap-northeast-1.amazonaws.com
+    - echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin
+    - REPO=$(aws ecr describe-repositories --repository sasa-test --output text --query "repositories[0].repositoryUri")
+    - IMAGE=${REPO}:latest
+  build:
+    commands:
+    - echo Build started on `date`
+    - docker build -t ${IMAGE} .
+    - docker push ${IMAGE}
+    - echo Build completed on `date`
+  post_build:
+    commands:
+    - printf '[{"name":"sasa-test", "imageUri":"%s"}]' $IMAGE > imagedefinitions.json
+artifacts:
+  files: imagedefinitions.json
