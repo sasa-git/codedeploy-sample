@@ -3,20 +3,20 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "task-definition-ARN"
+        TaskDefinition: <TASK_DEFINITION>
         LoadBalancerInfo:
-          ContainerName: "container-name"
-          ContainerPort: container-port-number
+          ContainerName: "env-checker"
+          ContainerPort: 3000
 # Optional properties
-        PlatformVersion: "LATEST"
-        NetworkConfiguration:
-            AwsvpcConfiguration:
-              Subnets: ["subnet-name-1", "subnet-name-2"]
-              SecurityGroups: ["security-group"]
-              AssignPublicIp: "ENABLED"
-Hooks:
-- BeforeInstall: "BeforeInstallHookFunctionName"
-- AfterInstall: "AfterInstallHookFunctionName"
-- AfterAllowTestTraffic: "AfterAllowTestTrafficHookFunctionName"
-- BeforeAllowTraffic: "BeforeAllowTrafficHookFunctionName"
-- AfterAllowTraffic: "AfterAllowTrafficHookFunctionName"
+        # PlatformVersion: "LATEST"
+        # NetworkConfiguration:
+        #     AwsvpcConfiguration:
+        #       Subnets: ["subnet-name-1", "subnet-name-2"]
+        #       SecurityGroups: ["security-group"]
+        #       AssignPublicIp: "ENABLED"
+# Hooks:
+# - BeforeInstall: "BeforeInstallHookFunctionName"
+# - AfterInstall: "AfterInstallHookFunctionName"
+# - AfterAllowTestTraffic: "AfterAllowTestTrafficHookFunctionName"
+# - BeforeAllowTraffic: "BeforeAllowTrafficHookFunctionName"
+# - AfterAllowTraffic: "AfterAllowTrafficHookFunctionName"

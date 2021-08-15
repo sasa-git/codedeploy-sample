@@ -1,4 +1,4 @@
-## buildspec TIP
+# buildspec TIP
 
 https://hub.docker.com/settings/security でdocker hub のアクセストークンを取得し、自分のアカウントでDocker hub にログインすることで、Build時にpull制限を回避できる
 
@@ -15,3 +15,10 @@ env:
 ```
 
 と書くとbuild時に環境変数が設定される！！！
+
+
+# TODO
+
+ECRへのpush  
+ECS cluster作成  
+pipeline作成  
