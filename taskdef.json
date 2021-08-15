@@ -3,7 +3,7 @@
   "containerDefinitions": [
       {
           "name": "env-checker",
-          "image": "node",
+          "image": "<IMAGE1_NAME>",
           "essential": true,
           "portMappings": [
               {
