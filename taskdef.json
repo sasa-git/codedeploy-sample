@@ -11,6 +11,12 @@
                   "protocol": "tcp",
                   "containerPort": 3000
               }
+          ],
+          "enviroment": [
+            {
+              "name": "TEST_ENV",
+              "value": "sasa"
+            }
           ]
       }
   ],
