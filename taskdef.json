@@ -16,6 +16,10 @@
             {
               "name": "TEST_ENV",
               "value": "sasa"
+            },
+            {
+              "name": "TEST_ENV2",
+              "value": "hogehoge"
             }
           ],
           "logConfiguration": { 
