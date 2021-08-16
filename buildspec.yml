@@ -24,6 +24,9 @@ phases:
     - echo Build completed on `date`
   post_build:
     commands:
-    - printf '[{"name":"sasa-test", "imageUri":"%s"}]' $IMAGE > imageDetail.json
+    - printf '[{"name":"sasa-test", "imageUri":"%s"}]' $IMAGE > imagedefinitions.json
+    - printf '{"Version":"1.0","ImageURI":"%s"}' $IMAGE > imageDetail.json
 artifacts:
-  files: imageDetail.json
+  files:
+    - imagedefinitions.json
+    - imageDetail.json
