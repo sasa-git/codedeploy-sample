@@ -17,8 +17,13 @@ env:
 と書くとbuild時に環境変数が設定される！！！
 
 
-# TODO
+# usage
 
-ECRへのpush  
-ECS cluster作成  
-pipeline作成  
+```
+npm install
+node index.js
+
+# access to localhost:3000 by browser
+# ---output---
+# {"NODE_VERSION":"14.17.5","TEST_ENV":"sasa","YARN_VERSION":"1.22.5","HOSTNAME":"ip-172-31-22-253.ap-northeast-1.compute.internal","HOME":"/root","AWS_EXECUTION_ENV":"AWS_ECS_FARGATE","TEST_ENV2":"hogehoge","AWS_DEFAULT_REGION":"ap-northeast-1","ECS_CONTAINER_METADATA_URI_V4":"http://169.254.170.2/v4/b4c4ce51faf4403b993da6641e222b35-3074346398","ECS_CONTAINER_METADATA_URI":"http://169.254.170.2/v3/b4c4ce51faf4403b993da6641e222b35-3074346398","PATH":"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","AWS_REGION":"ap-northeast-1","PWD":"/usr/src/app"}
+```

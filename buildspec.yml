@@ -24,7 +24,9 @@ phases:
     - echo Build completed on `date`
   post_build:
     commands:
+    # ECS標準デプロイ
     - printf '[{"name":"sasa-test", "imageUri":"%s"}]' $IMAGE > imagedefinitions.json
+    # ECS Blue/Greenデプロイ
     - printf '{"Version":"1.0","ImageURI":"%s"}' $IMAGE > imageDetail.json
 artifacts:
   files:
